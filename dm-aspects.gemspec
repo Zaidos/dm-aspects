@@ -2,7 +2,6 @@
 
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-
 require 'datamapper/aspects/version'
 
 Gem::Specification.new do |gem|
@@ -10,8 +9,8 @@ Gem::Specification.new do |gem|
   gem.version       = DataMapper::Aspects::VERSION
   gem.authors       = ['StyleSeek Engineering Team']
   gem.email         = ['engineering@styleseek.com']
-  gem.summary       = %q{TODO: Write a short summary. Required.}
-  gem.description   = %q{TODO: Write a longer description. Optional.}
+  gem.summary       = %q{Aspect-Oriented modules to add enhance your DataMapper models.}
+  gem.description   = %q{Aspect-Oriented modules to add commonly needed methods and properties to your DataMapper models.}
   gem.homepage      = "https://github.com/styleseek/dm-aspects"
   gem.license       = "MIT"
 
