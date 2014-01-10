@@ -45,7 +45,7 @@ MyModel.find_by_slug('')
 
 Adds a `:status` property to your model that validates it was set to one of the followig options: `'draft'`, `'published'`, `'archived'`. The default value is `'draft'`. 
 
-You can customize this by overwriting the `statuses` class method on your Model and have it return an array of strings. Just make sure the default status is first element in the array and that none of your statuses are over 50 chacters long.
+You can customize this by overwriting the `statuses` class method on your Model and have it return an array of strings. Just make sure the default status is first element in the array and that none of your statuses are over 50 characters long.
 
 We use this module to give admin's simple controls over the visibility of content-oriented objects. This module has helped us avoid conflating domain concerns (validation, state management, content lifecycle, etc) by implementing a state machine on models too early in the development of new applications.
 
@@ -77,6 +77,8 @@ class MyModel
   end
 end
 ````
+
+---
 
 ### DataMapper::Aspects::Utils
 
