@@ -2,7 +2,7 @@
 
 lib = File.expand_path('../lib', __FILE__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require 'datamapper/aspects/version'
+require 'dm-aspects/version'
 
 Gem::Specification.new do |gem|
   gem.name          = "dm-aspects"

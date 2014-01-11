@@ -1,6 +1,6 @@
 # encoding: utf-8
 
-require 'aspects/slug'
-require 'aspects/status'
-require 'aspects/utils'
-require 'aspects/version'
+require 'datamapper/aspects/slug'
+require 'datamapper/aspects/status'
+require 'datamapper/aspects/utils'
+require 'dm-aspects/version'
