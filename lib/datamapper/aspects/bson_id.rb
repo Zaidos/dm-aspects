@@ -41,7 +41,11 @@ module DataMapper
         #
         # Returns true if ID is valid, false if not.
         def id_is_valid?
-          Moped::BSON::ObjectId.legal?(@id)
+          if Moped::BSON::ObjectId.legal?(@id)
+            true
+          else
+            [false, 'Id must be a valid BSON ObjectId']
+          end
         end
       end
     end
