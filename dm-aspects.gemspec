@@ -21,7 +21,7 @@ Gem::Specification.new do |gem|
 
   gem.add_dependency 'dm-core'
   gem.add_dependency 'oj'
-  
+
   gem.add_development_dependency "bundler", "~> 1.5"
   gem.add_development_dependency "rake"
 end

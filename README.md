@@ -31,9 +31,11 @@ As such, you to add this to you Gemfile before using this module:
 gem 'moped', require: 'moped/bson'
 ````
 
-Example:
+You will also need to explicitly require the BSON ID aspect. Example:
 
 ````ruby
+require 'datamapper/aspects/bson_id'
+
 class MyModel
   include DataMapper::Resource
   include DataMapper::Aspects::BSONID
