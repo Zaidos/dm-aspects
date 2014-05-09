@@ -14,6 +14,42 @@ And then execute:
 
 ## Usage
 
+### DataMapper::Aspects::BSONID
+
+Adds a primary key property called `:id` to your model that uses BSONID:
+
+    property :id, String, length: 24, key: true, default: Moped::BSON::ObjectId.new
+
+Moped::BSON has been found to be the fastest BSON ObjectId library for ruby, so it
+was chosen for ObjectID generation and validation. However, `dm-aspects` has not declared
+this as a dependency, since all `dm-aspects` are optional (and declaring `moped` as a
+dependency would drag a bunch of unwanted code in and slow down your boot up time).
+
+As such, you to add this to you Gemfile before using this module:
+
+````ruby
+gem 'moped', require: 'moped/bson'
+````
+
+Example:
+
+````ruby
+class MyModel
+  include DataMapper::Resource
+  include DataMapper::Aspects::BSONID
+
+  # :id is added automatically
+  property :name
+  
+end
+
+MyModel.create(name: 'Example')
+# => #<MyModel @id="53673b2c89d50f5c7400001f" @name="Example">
+````
+
+---
+
+
 ### DataMapper::Aspects::Slug
 
 Adds a `:slug` property to your model:
@@ -36,7 +72,7 @@ end
 
 MyModel.create(slug: 'my-slug')
 MyModel.find_by_slug('')
-# => #<Game @id=1 @slug="my-slug">
+# => #<MyModel @id=1 @slug="my-slug">
 ````
 
 ---

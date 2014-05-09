@@ -1,4 +1,4 @@
 source 'https://rubygems.org'
-
-# Specify your gem's dependencies in dm-aspects.gemspec
 gemspec
+
+gem 'moped', require: 'moped/bson'
