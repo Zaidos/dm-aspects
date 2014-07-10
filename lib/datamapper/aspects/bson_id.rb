@@ -15,7 +15,7 @@ module DataMapper
     module BSONID
       def self.included(base)
         # Public: Provides the default aspect's attributes.
-        base.property :id, String, length: 24, key: true, default: Moped::BSON::ObjectId.new.to_s
+        base.property :id, String, length: 24, key: true, default: BSON::ObjectId.new.to_s
 
         # Internal: Validates that the BSON ID is a valid object id.
         base.validates_with_method :id, method: :id_is_valid?
@@ -29,7 +29,7 @@ module DataMapper
         #
         # Returns the generation time of the BSON Object ID as a String.
         def id_generation_time
-          Moped::BSON::ObjectId.from_string(@id).generation_time
+          BSON::ObjectId.from_string(@id).generation_time
         end
 
         # Public: Checks if the ID is a valid BSON Object ID.
@@ -41,7 +41,7 @@ module DataMapper
         #
         # Returns true if ID is valid, false if not.
         def id_is_valid?
-          if Moped::BSON::ObjectId.legal?(@id)
+          if BSON::ObjectId.legal?(@id)
             true
           else
             [false, 'Id must be a valid BSON ObjectId']
