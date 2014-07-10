@@ -16,6 +16,11 @@ module DataMapper
       def self.included(base)
         # Public: Provides the default aspect's attributes.
         base.property :id, String, length: 24, key: true, default: BSON::ObjectId.new.to_s
+        base.property :id, String,
+          length: 24,
+          key: true,
+          unique: true,
+          default: proc { BSON::ObjectId.new.to_s }
 
         # Internal: Validates that the BSON ID is a valid object id.
         base.validates_with_method :id, method: :id_is_valid?
