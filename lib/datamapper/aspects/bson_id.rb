@@ -15,7 +15,6 @@ module DataMapper
     module BSONID
       def self.included(base)
         # Public: Provides the default aspect's attributes.
-        base.property :id, String, length: 24, key: true, default: BSON::ObjectId.new.to_s
         base.property :id, String,
           length: 24,
           key: true,
